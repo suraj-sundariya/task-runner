@@ -1,2 +1,8 @@
-# task-runner
-This Node.js and JavaScript library provides efficient queue processing with optimized handling of synchronous and asynchronous tasks.
+# QueueHandler
+
+QueueHandler is a lightweight Node.js library to manage and run synchronous and asynchronous tasks in a controlled environment, respecting concurrency, CPU, and memory utilization limits.
+
+## Installation
+
+```bash
+npm install queue-handler
