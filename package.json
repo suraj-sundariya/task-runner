@@ -1,0 +1,27 @@
+{
+  "name": "task-runner",
+  "version": "1.0.0",
+  "description": "This Node.js and JavaScript library provides efficient queue processing with optimized handling of synchronous and asynchronous tasks.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/suraj-sundariya/task-runner.git"
+  },
+  "keywords": [
+    "Nodejs",
+    "Queue",
+    "processing",
+    "Javascript",
+    "Task",
+    "runner"
+  ],
+  "author": "Suraj Kumar Sundariya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/suraj-sundariya/task-runner/issues"
+  },
+  "homepage": "https://github.com/suraj-sundariya/task-runner#readme"
+}
