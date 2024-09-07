@@ -1,4 +1,5 @@
-const QueueHandler = require('../index')
+const { QueueHandler, SystemMonitor } = require('../index')
+// import QueueHandler from '../src/index.js'
 
 // const queue = new QueueHandler({
 //     concurrency: 2,
@@ -110,25 +111,30 @@ process.on('uncaughtException', (error) => {
 
 // Example usage
 const task1 = () => new Promise(resolve => setTimeout(() => {
-    console.log('Task 1 done');
-    resolve();
-  }, 1000));
-  
-  const task2 = () => new Promise(resolve => setTimeout(() => {
-    console.log('Task 2 done');
-    resolve();
-  }, 1500));
-  
-  const task3 = () => new Promise(resolve => setTimeout(() => {
-    console.log('Task 3 done');
-    resolve();
-  }, 500));
-  
-  const task4 = () => new Promise(resolve => setTimeout(() => {
-    console.log('Task 4 done');
-    resolve();
-  }, 2000));
-  
-  const queue = new QueueHandler({concurrency: 4, maxCpuUtilization: 80, maxMemoryUtilization: 64 }); // Create a QueueHandler with concurrency of 4
-  
-  queue.addTasks([task1, task2, task3, task4, task1, task2, task3, task4]);
+  console.log('Task 1 done');
+  resolve();
+}, 1000));
+
+const task2 = () => new Promise(resolve => setTimeout(() => {
+  console.log('Task 2 done');
+  resolve();
+}, 1500));
+
+const task3 = () => new Promise(resolve => setTimeout(() => {
+  console.log('Task 3 done');
+  resolve();
+}, 500));
+
+const task4 = () => new Promise(resolve => setTimeout(() => {
+  console.log('Task 4 done');
+  resolve();
+}, 2000));
+const systemMonitor = new SystemMonitor({ maxCpuUtilization: 70, maxMemoryUtilization: 75 });
+const queue = new QueueHandler({concurrency: 4, maxCpuUtilization: 80, maxMemoryUtilization: 80 }); // Create a QueueHandler with concurrency of 4
+console.log('CPU Usage 1:', systemMonitor.getCpuUsage());
+console.log('Memory Usage 1:', systemMonitor.getMemoryUsage());
+queue.addTasks([task1, task2, task3, task4, task1, task2, task3, task4]);
+
+console.log(' CPU uses after task processing ');
+console.log('CPU Usagen 2 :', systemMonitor.getCpuUsage());
+console.log('Memory Usage 2:', systemMonitor.getMemoryUsage());
